@@ -22,14 +22,32 @@ def login():
 
 @app.route('/pumps', methods=['POST'])
 def pumps():
-    print("Function triggered!")
+    print("Function Pumps triggered!")
     content = request.json
     print(content['ID'])
     print(content['value'])
-    if content['ID'] == '1':
+    if content['ID'] == 1:
         return jsonify({"status": "success", "message": "Pump1 control successful!"})
-    elif content['ID'] == '2':
+    elif content['ID'] == 2:
         return jsonify({"status": "success", "message": "Pump2 control successful!"})
+    else:
+        return jsonify({"status": "failure", "message": "Device of this ID doesn't exist!"})
+
+
+@app.route('/lighting', methods=['POST'])
+def lighting():
+    print("Function Lighting triggered!")
+    content = request.json
+    print(content['ID'])
+    print(content['value'])
+    if content['ID'] == 1:
+        return jsonify({"status": "success", "message": "Light1 control successful!"})
+    elif content['ID'] == 2:
+        return jsonify({"status": "success", "message": "Light2 control successful!"})
+    elif content['ID'] == 3:
+        return jsonify({"status": "success", "message": "Light3 control successful!"})
+    elif content['ID'] == 4:
+        return jsonify({"status": "success", "message": "Light4 control successful!"})
     else:
         return jsonify({"status": "failure", "message": "Device of this ID doesn't exist!"})
 
