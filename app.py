@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from RPICommunication.ArduinoCOM.COMListener import listener
+from RPICommunication.ArduinoCOM.COMListener import listener, listener2
 
 app = Flask(__name__)
 CORS(app, origins="*") #DEV ONLY!
