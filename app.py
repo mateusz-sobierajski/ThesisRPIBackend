@@ -5,6 +5,23 @@ app = Flask(__name__)
 CORS(app, origins="*") #DEV ONLY!
 
 
+#def random_dataset():
+#    dataset = {
+#        "dataset": [
+#            {
+#                data = [
+#                    Math.random() * 10,
+#                    Math.random() * 10,
+#                    Math.random() * 10,
+#                    Math.random() * 10,
+#                    Math.random() * 10,
+#                    Math.random() * 10
+#                ]
+#            }
+#        ]
+#    }
+
+
 @app.route('/')
 def hello_world():  # put application's code here
     return 'Hello World!'
@@ -48,6 +65,24 @@ def lighting():
         return jsonify({"status": "success", "message": "Light3 control successful!"})
     elif content['ID'] == 4:
         return jsonify({"status": "success", "message": "Light4 control successful!"})
+    else:
+        return jsonify({"status": "failure", "message": "Device of this ID doesn't exist!"})
+
+
+@app.route('/datasets', methods=['POST'])
+def datasets():
+    print("Function Datasets triggered!")
+    content = request.json
+    print(content['ID'])
+    print(content['value'])
+    if content['ID'] == 1:
+        return jsonify({"status": "success", "message": "Dataset1 control successful!"})
+    elif content['ID'] == 2:
+        return jsonify({"status": "success", "message": "Dataset2 control successful!"})
+    elif content['ID'] == 3:
+        return jsonify({"status": "success", "message": "Dataset3 control successful!"})
+    elif content['ID'] == 4:
+        return jsonify({"status": "success", "message": "Dataset4 control successful!"})
     else:
         return jsonify({"status": "failure", "message": "Device of this ID doesn't exist!"})
 
