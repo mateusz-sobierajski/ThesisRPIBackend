@@ -17,6 +17,7 @@ def listener():
 			#print(splitinfo[3])
 			#for a in splitinfo:
 			#	print(a)
+			print(splitinfo[1])
 			for i in range(len(splitinfo)):
 				print(i)
 				print(splitinfo[i])
