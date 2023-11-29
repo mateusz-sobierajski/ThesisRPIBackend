@@ -15,6 +15,8 @@ def listener():
 			print(splitinfo)
 			print(splitinfo[1])
 			print(splitinfo[3])
+			for a in splitinfo:
+				print(a)
 
 	#while True:
 	#	read_serial = ser.readline()
