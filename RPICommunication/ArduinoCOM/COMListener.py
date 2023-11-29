@@ -13,8 +13,8 @@ def listener():
 			splitinfo = line.split(",")
 			print(line)
 			print(splitinfo)
-			print(splitinfo[1])
-			print(splitinfo[3])
+			#print(splitinfo[1])
+			#print(splitinfo[3])
 			for a in splitinfo:
 				print(a)
 
