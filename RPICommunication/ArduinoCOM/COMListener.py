@@ -10,7 +10,10 @@ def listener():
 		if ser.inWaiting() > 0:
 			print(ser.readline())
 			line = ser.readline().decode('utf-8').rstrip()
+			splitinfo = line.split(',')
 			print(line)
+			print(splitinfo[1])
+			print(splitinfo[3])
 
 	#while True:
 	#	read_serial = ser.readline()
