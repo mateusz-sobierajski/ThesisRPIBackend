@@ -20,7 +20,9 @@ def listener():
 			print(splitinfo[1])
 			for i in range(len(splitinfo)):
 				print(i)
+				type(i)
 				print(splitinfo[i])
+				type(splitinfo[i])
 
 	#while True:
 	#	read_serial = ser.readline()
