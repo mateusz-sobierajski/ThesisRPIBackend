@@ -8,10 +8,10 @@ def listener():
 	ser.reset_input_buffer()
 	while True:
 		if ser.inWaiting() > 0:
-			print(ser.readline())
+			#print(ser.readline())
 			line = ser.readline().decode('utf-8').rstrip()
-			splitinfo = line.split(',')
-			#print(line)
+			splitinfo = line.split(",")
+			print(line)
 			#print(splitinfo[1])
 			#print(splitinfo[3])
 
