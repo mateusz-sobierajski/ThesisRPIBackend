@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from RPICommunication.ArduinoCOM.COMListener import listener, listener2
+from RPICommunication.RPIGPIO.PWMLED import gpioLED
 
 app = Flask(__name__)
 CORS(app, origins="*") #DEV ONLY!
@@ -45,6 +46,7 @@ def pumps():
     print(content['ID'])
     print(content['value'])
     if content['ID'] == 1:
+        gpioLED(content['value'])
         return jsonify({"status": "success", "message": "Pump1 control successful!"})
     elif content['ID'] == 2:
         return jsonify({"status": "success", "message": "Pump2 control successful!"})

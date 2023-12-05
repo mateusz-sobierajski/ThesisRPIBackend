@@ -1,6 +1,8 @@
 import serial
 import time
 
+from RPICommunication.MariaDB.INSERT_handler import insert_aht10
+
 
 # ser = serial.Serial('/dev/ttyACM0',9600)
 def listener():
@@ -17,6 +19,7 @@ def listener():
 			#print(splitinfo[3])
 			#for a in splitinfo:
 			#	print(a)
+			insert_aht10(splitinfo)
 			print(splitinfo[1])
 			for i in range(len(splitinfo)):
 				print(i)
