@@ -21,6 +21,7 @@ def listener():
 			#print(splitinfo[3])
 			#for a in splitinfo:
 			#	print(a)
+			print ("Init ii counter: ")
 			print (ii)
 			if ii > 4:
 				insert_aht10(splitinfo)
