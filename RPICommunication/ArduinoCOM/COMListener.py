@@ -8,11 +8,11 @@ from RPICommunication.MariaDB.INSERT_handler import insert_aht10
 def listener():
 	ser = serial.Serial('/dev/ttyUSB0', 1200)
 	ser.reset_input_buffer()
-	i = 0
+	ii = 0
 	while True:
 		if ser.inWaiting() > 0:
 			#print(ser.readline())
-			i+=1
+			ii += 1
 			line = ser.readline().decode('utf-8').rstrip()
 			splitinfo = line.split(",")
 			print(line)
@@ -21,7 +21,8 @@ def listener():
 			#print(splitinfo[3])
 			#for a in splitinfo:
 			#	print(a)
-			if i > 10:
+			print (ii)
+			if ii > 4:
 				insert_aht10(splitinfo)
 				print(splitinfo[1])
 			for i in range(len(splitinfo)):
