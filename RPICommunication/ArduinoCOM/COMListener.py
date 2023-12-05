@@ -1,6 +1,7 @@
 import serial
 import time
 
+from RPICommunication.ArduinoCOM.JSONIFYtemp import jsonifyTemp
 from RPICommunication.MariaDB.INSERT_handler import insert_aht10
 
 
@@ -31,6 +32,7 @@ def listener():
 				type(i)
 				print(splitinfo[i])
 				type(splitinfo[i])
+			jsonifyTemp()
 
 	#while True:
 	#	read_serial = ser.readline()
