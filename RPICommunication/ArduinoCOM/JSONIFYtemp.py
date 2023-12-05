@@ -3,6 +3,7 @@ import sys
 
 
 def jsonifyTemp():
+    data: list = []
     try:
         conn = mariadb.connect(
             host="localhost",
@@ -17,7 +18,8 @@ def jsonifyTemp():
     cur = conn.cursor()
     cur.execute("SELECT * FROM AHT10 ORDER BY id DESC LIMIT 10")
     for (id, temperature, humidity, timestamp) in cur:
+        data.append(temperature)
         print(f"id: {id}, temperature: {temperature}, humidity: {humidity}, timestamp: {timestamp}")
     conn.commit()
     conn.close()
-
+    print(data)

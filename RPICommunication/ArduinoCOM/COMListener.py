@@ -5,14 +5,12 @@ from RPICommunication.ArduinoCOM.JSONIFYtemp import jsonifyTemp
 from RPICommunication.MariaDB.INSERT_handler import insert_aht10
 
 
-# ser = serial.Serial('/dev/ttyACM0',9600)
 def listener():
 	ser = serial.Serial('/dev/ttyUSB0', 1200)
 	ser.reset_input_buffer()
 	ii = 0
 	while True:
 		if ser.inWaiting() > 0:
-			#print(ser.readline())
 			ii += 1
 			line = ser.readline().decode('utf-8').rstrip()
 			splitinfo = line.split(",")
@@ -33,13 +31,6 @@ def listener():
 				print(splitinfo[i])
 				type(splitinfo[i])
 			jsonifyTemp()
-
-	#while True:
-	#	read_serial = ser.readline()
-	#	print(ser.readline())
-		#s[0] = str(int(ser.readline(), 16))
-		#print(s[0])
-	#	print(read_serial)
 
 
 def listener2():
