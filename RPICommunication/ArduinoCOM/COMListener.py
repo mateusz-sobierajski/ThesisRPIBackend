@@ -23,7 +23,7 @@ def listener():
 			#	print(a)
 			if i > 10:
 				insert_aht10(splitinfo)
-			print(splitinfo[1])
+				print(splitinfo[1])
 			for i in range(len(splitinfo)):
 				print(i)
 				type(i)
