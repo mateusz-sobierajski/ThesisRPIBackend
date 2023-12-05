@@ -16,7 +16,7 @@ def jsonifyTemp():
         sys.exit(1)
     cur = conn.cursor()
     cur.execute("SELECT * FROM AHT10 ORDER BY id DESC LIMIT 10")
-    for (temperature, humidity) in cur:
+    for (id, temperature, humidity) in cur:
         print(f"id: {id}, temperature: {temperature}, humidity: {humidity}")
     conn.commit()
     conn.close()
