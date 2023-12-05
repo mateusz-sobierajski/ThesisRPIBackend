@@ -6,7 +6,9 @@ try:
         host="localhost",
         port=3306,
         user="rpi4",
-        password="raspberrydb")
+        password="raspberrydb",
+        database="pidatabase")
+    print("MariaDB Platform Connected Successfully!")
 except mariadb.Error as e:
     print(f"Error connecting to MariaDB Platform: {e}")
     sys.exit(1)
