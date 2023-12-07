@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-#from RPICommunication.ArduinoCOM.COMListener import listener, listener2
+from RPICommunication.ArduinoCOM.COMListener import listener, listener2
 #from RPICommunication.ArduinoCOM.JSONIFYtemp import get_temp
 #from RPICommunication.RPIGPIO.PWMLED import gpioLED
 
 app = Flask(__name__)
 CORS(app, origins="*") #DEV ONLY!
-#listener()
+listener()
 
 #def random_dataset():
 #    dataset = {
