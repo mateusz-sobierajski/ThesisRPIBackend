@@ -97,6 +97,7 @@ def datasets():
 
 
 if __name__ == '__main__':
+    print("Main function triggered!")
     t1 = threading.Thread(target=listener)
     t2 = threading.Thread(target=runApp)
     #app.run(host="0.0.0.0", port=5000, debug=True)
