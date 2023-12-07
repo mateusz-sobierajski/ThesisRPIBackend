@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import threading
 from RPICommunication.ArduinoCOM.COMListener import listener, listener2
-#from RPICommunication.ArduinoCOM.JSONIFYtemp import get_temp
+from RPICommunication.ArduinoCOM.JSONIFYtemp import get_temp
 #from RPICommunication.RPIGPIO.PWMLED import gpioLED
 
 app = Flask(__name__)
@@ -84,8 +84,8 @@ def datasets():
     print(content['ID'])
     print(content['value'])
     if content['ID'] == 1:
-        #return get_temp()
-        return jsonify({"status": "success", "message": "Dataset1 control successful!"})
+        return get_temp()
+        #return jsonify({"status": "success", "message": "Dataset1 control successful!"})
     elif content['ID'] == 2:
         return jsonify({"status": "success", "message": "Dataset2 control successful!"})
     elif content['ID'] == 3:
