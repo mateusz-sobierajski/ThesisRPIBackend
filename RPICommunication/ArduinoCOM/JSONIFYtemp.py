@@ -2,7 +2,7 @@ import mariadb
 import sys
 
 
-def jsonifyTemp():
+def get_temp():
     data: list = []
     try:
         conn = mariadb.connect(
@@ -23,3 +23,4 @@ def jsonifyTemp():
     conn.commit()
     conn.close()
     print(data)
+    return data

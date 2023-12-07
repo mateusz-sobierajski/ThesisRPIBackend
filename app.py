@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from RPICommunication.ArduinoCOM.COMListener import listener, listener2
-from RPICommunication.RPIGPIO.PWMLED import gpioLED
+#from RPICommunication.ArduinoCOM.COMListener import listener, listener2
+#from RPICommunication.ArduinoCOM.JSONIFYtemp import get_temp
+#from RPICommunication.RPIGPIO.PWMLED import gpioLED
 
 app = Flask(__name__)
 CORS(app, origins="*") #DEV ONLY!
-listener()
+#listener()
 
 #def random_dataset():
 #    dataset = {
@@ -46,7 +47,7 @@ def pumps():
     print(content['ID'])
     print(content['value'])
     if content['ID'] == 1:
-        gpioLED(content['value'])
+        #gpioLED(content['value'])
         return jsonify({"status": "success", "message": "Pump1 control successful!"})
     elif content['ID'] == 2:
         return jsonify({"status": "success", "message": "Pump2 control successful!"})
@@ -79,6 +80,7 @@ def datasets():
     print(content['ID'])
     print(content['value'])
     if content['ID'] == 1:
+        #return get_temp()
         return jsonify({"status": "success", "message": "Dataset1 control successful!"})
     elif content['ID'] == 2:
         return jsonify({"status": "success", "message": "Dataset2 control successful!"})

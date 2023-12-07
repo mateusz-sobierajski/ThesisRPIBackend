@@ -1,7 +1,7 @@
 import serial
 import time
 
-from RPICommunication.ArduinoCOM.JSONIFYtemp import jsonifyTemp
+from RPICommunication.ArduinoCOM.JSONIFYtemp import get_temp
 from RPICommunication.MariaDB.INSERT_handler import insert_aht10
 
 
@@ -30,7 +30,7 @@ def listener():
 				type(i)
 				print(splitinfo[i])
 				type(splitinfo[i])
-			jsonifyTemp()
+			get_temp()
 
 
 def listener2():
