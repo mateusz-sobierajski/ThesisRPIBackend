@@ -103,7 +103,9 @@ if __name__ == '__main__':
     #app.run(host="0.0.0.0", port=5000, debug=True)
 
     t1.start()
+    print("Thread 1 started!")
     t2.start()
+    print("Thread 2 started!")
 
     t1.join()
     t2.join()
@@ -111,3 +113,4 @@ if __name__ == '__main__':
 
 #. .venv/bin/activate
 #flask run --host=0.0.0.0 --port=5000
+#flask --app app --debug run
