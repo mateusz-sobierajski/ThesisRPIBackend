@@ -3,6 +3,8 @@ from flask_cors import CORS
 import threading
 from RPICommunication.ArduinoCOM.COMListener import listener, listener2
 from RPICommunication.ArduinoCOM.JSONIFYtemp import get_temp
+from RPICommunication.RPIGPIO.PWMLED import gpioLED
+
 #from RPICommunication.RPIGPIO.PWMLED import gpioLED
 
 app = Flask(__name__)
@@ -51,7 +53,7 @@ def pumps():
     print(content['ID'])
     print(content['value'])
     if content['ID'] == 1:
-        #gpioLED(content['value'])
+        gpioLED(content['value'])
         return jsonify({"status": "success", "message": "Pump1 control successful!"})
     elif content['ID'] == 2:
         return jsonify({"status": "success", "message": "Pump2 control successful!"})
@@ -97,20 +99,22 @@ def datasets():
 
 
 if __name__ == '__main__':
-    print("Main function triggered!")
-    t1 = threading.Thread(target=listener)
-    t2 = threading.Thread(target=runApp)
+    runApp()
+    #print("Main function triggered!")
+    #t1 = threading.Thread(target=listener)
+    #2 = threading.Thread(target=runApp)
     #app.run(host="0.0.0.0", port=5000, debug=True)
 
-    t1.start()
-    print("Thread 1 started!")
-    t2.start()
-    print("Thread 2 started!")
+    #t1.start()
+    #print("Thread 1 started!")
+    #t2.start()
+    #print("Thread 2 started!")
 
-    t1.join()
-    t2.join()
+    #t1.join()
+    #t2.join()
 
 
 #. .venv/bin/activate
 #flask run --host=0.0.0.0 --port=5000
 #flask --app app --debug run
+#python app.py
