@@ -13,6 +13,7 @@ CORS(app, origins="*") #DEV ONLY!
 
 def runApp():
     app.run(host="0.0.0.0", port=5000, debug=True)
+    gpioLED(1)
 
 #def random_dataset():
 #    dataset = {
