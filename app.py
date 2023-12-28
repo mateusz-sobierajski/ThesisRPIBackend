@@ -3,13 +3,14 @@ from flask_cors import CORS
 import threading
 from RPICommunication.ArduinoCOM.COMListener import listener, listener2
 from RPICommunication.ArduinoCOM.JSONIFYtemp import get_temp
-from RPICommunication.RPIGPIO.PWMLED import gpioLED
+from RPICommunication.RPIGPIO.PWMLED import gpioLED, initGpio
 
 #from RPICommunication.RPIGPIO.PWMLED import gpioLED
 
 app = Flask(__name__)
 CORS(app, origins="*") #DEV ONLY!
 #listener()
+pin16 = initGpio(16)
 
 def runApp():
     app.run(host="0.0.0.0", port=5000, debug=True)
@@ -53,7 +54,7 @@ def pumps():
     print(content['ID'])
     print(content['value'])
     if content['ID'] == 1:
-        gpioLED(content['value'])
+        gpioLED(pin16, content['value'])
         return jsonify({"status": "success", "message": "Pump1 control successful!"})
     elif content['ID'] == 2:
         return jsonify({"status": "success", "message": "Pump2 control successful!"})

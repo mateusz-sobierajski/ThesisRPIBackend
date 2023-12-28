@@ -1,17 +1,18 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-def gpioLED(value):
-    ledpin = 16  # PWM pin connected to LED
+
+def initGpio(ledpin):
     GPIO.setwarnings(False)  # disable warnings
     GPIO.setmode(GPIO.BOARD)  # set pin numbering system
     GPIO.setup(ledpin, GPIO.OUT)
-    pi_pwm = GPIO.PWM(ledpin, 1000)  # create PWM instance with frequency
-    pi_pwm.start(0)  # start PWM of required Duty Cycle
-    pi_pwm.ChangeDutyCycle(value)
-    sleep(0.5)
-    pi_pwm.stop()
-    GPIO.cleanup()
+    pwmPin = GPIO.PWM(ledpin, 1000)  # create PWM instance with frequency
+    pwmPin.start(0)  # start PWM of required Duty Cycle
+    return pwmPin
+
+
+def gpioLED(pwmPin, value):
+    pwmPin.ChangeDutyCycle(value)  # provide duty cycle in the range 0-100
 
 
 ('''
