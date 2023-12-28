@@ -8,29 +8,45 @@ def gpioLED(value):
     GPIO.setup(ledpin, GPIO.OUT)
     pi_pwm = GPIO.PWM(ledpin, 1000)  # create PWM instance with frequency
     pi_pwm.start(0)  # start PWM of required Duty Cycle
-    while True:
-        for duty in range(0, 101, 1):
-            pi_pwm.ChangeDutyCycle(duty)  # provide duty cycle in the range 0-100
-            sleep(0.01)
-        sleep(0.5)
+    pi_pwm.ChangeDutyCycle(value)
+    try:
+        while True:
+            for duty in range(0, 101, 1):
+                pi_pwm.ChangeDutyCycle(duty)  # provide duty cycle in the range 0-100
+                sleep(0.01)
+            sleep(0.5)
 
-        for duty in range(100, -1, -1):
-            pi_pwm.ChangeDutyCycle(duty)
-            sleep(0.01)
-        sleep(0.5)
+            for duty in range(100, -1, -1):
+                pi_pwm.ChangeDutyCycle(duty)
+                sleep(0.01)
+            sleep(0.5)
+    except KeyboardInterrupt:
+        pass
+    pi_pwm.stop()
+    GPIO.cleanup()
 
 
 ('''
-import RPi.GPIO as GPIO
-
-
 def gpioLED(value):
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(12, GPIO.OUT)
+    ledpin = 16  # PWM pin connected to LED
+    GPIO.setwarnings(False)  # disable warnings
+    GPIO.setmode(GPIO.BOARD)  # set pin numbering system
+    GPIO.setup(ledpin, GPIO.OUT)
+    pi_pwm = GPIO.PWM(ledpin, 1000)  # create PWM instance with frequency
+    pi_pwm.start(0)  # start PWM of required Duty Cycle
+    try:
+        while True:
+            for duty in range(0, 101, 1):
+                pi_pwm.ChangeDutyCycle(duty)  # provide duty cycle in the range 0-100
+                sleep(0.01)
+            sleep(0.5)
 
-    p = GPIO.PWM(12, 0.5)
-    p.start(1)
-    input('Press return to stop:')  # use raw_input for Python 2
-    p.stop()
+            for duty in range(100, -1, -1):
+                pi_pwm.ChangeDutyCycle(duty)
+                sleep(0.01)
+            sleep(0.5)
+    except KeyboardInterrupt:
+        pass
+    pi_pwm.stop()
     GPIO.cleanup()
 ''')
