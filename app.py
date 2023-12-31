@@ -77,6 +77,7 @@ def pumps():
         gpioLED(water_pump, content['value'])
         return jsonify({"status": "success", "message": "Pump1 control successful!"})
     elif content['ID'] == 2:
+        gpioLED(peristaltic_Nutrients, content['value'])
         return jsonify({"status": "success", "message": "Pump2 control successful!"})
     else:
         return jsonify({"status": "failure", "message": "Device of this ID doesn't exist!"})
