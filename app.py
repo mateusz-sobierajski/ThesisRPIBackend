@@ -10,7 +10,27 @@ from RPICommunication.RPIGPIO.PWMLED import gpioLED, initGpio
 app = Flask(__name__)
 CORS(app, origins="*") #DEV ONLY!
 #listener()
-pin16 = initGpio(16)
+
+royal_blue_Top_Left = pin07 = initGpio(7)
+deep_red_Top_Left = pin11 = initGpio(11)
+IR_Top_Left = pin12 = initGpio(12)
+
+royal_blue_Top_Right = pin13 = initGpio(13)
+deep_red_Top_Right = pin15 = initGpio(15)
+IR_Top_Right = pin16 = initGpio(16)
+
+royal_blue_Bottom_Left = pin18 = initGpio(18)
+deep_red_Bottom_Left = pin29 = initGpio(29)
+IR_Bottom_Left = in31 = initGpio(31)
+
+royal_blue_Bottom_Right = pin32 = initGpio(32)
+deep_red_Bottom_Right = pin33 = initGpio(33)
+IR_Bottom_Right = pin35 = initGpio(35)
+
+peristaltic_PH_Positive = pin36 = initGpio(36)
+peristaltic_PH_Negative = pin37 = initGpio(37)
+peristaltic_Nutrients = pin38 = initGpio(38)
+water_pump = pin40 = initGpio(40)
 
 def runApp():
     app.run(host="0.0.0.0", port=5000, debug=True)
@@ -54,7 +74,7 @@ def pumps():
     print(content['ID'])
     print(content['value'])
     if content['ID'] == 1:
-        gpioLED(pin16, content['value'])
+        gpioLED(water_pump, content['value'])
         return jsonify({"status": "success", "message": "Pump1 control successful!"})
     elif content['ID'] == 2:
         return jsonify({"status": "success", "message": "Pump2 control successful!"})
