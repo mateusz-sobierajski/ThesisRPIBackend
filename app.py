@@ -87,8 +87,8 @@ def pumps():
 def lighting():
     print("Function Lighting triggered!")
     content = request.json
-    print(content['ID'])
-    print(content['value'])
+    print("ID:", content['ID'])
+    print("Value:", content['value'])
     if content['ID'] == 'Blue_T_L':
         gpioLED(royal_blue_Top_Left, content['value'])
         return jsonify({"status": "success", "message": "Blue_Top_Left control successful!"})
