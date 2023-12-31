@@ -89,14 +89,42 @@ def lighting():
     content = request.json
     print(content['ID'])
     print(content['value'])
-    if content['ID'] == 1:
-        return jsonify({"status": "success", "message": "Light1 control successful!"})
-    elif content['ID'] == 2:
-        return jsonify({"status": "success", "message": "Light2 control successful!"})
-    elif content['ID'] == 3:
-        return jsonify({"status": "success", "message": "Light3 control successful!"})
-    elif content['ID'] == 4:
-        return jsonify({"status": "success", "message": "Light4 control successful!"})
+    if content['ID'] == 'Blue_T_L':
+        gpioLED(royal_blue_Top_Left, content['value'])
+        return jsonify({"status": "success", "message": "Blue_Top_Left control successful!"})
+    elif content['ID'] == 'Red_T_L':
+        gpioLED(deep_red_Top_Left, content['value'])
+        return jsonify({"status": "success", "message": "Red_Top_Left control successful!"})
+    elif content['ID'] == 'IR_T_L':
+        gpioLED(IR_Top_Left, content['value'])
+        return jsonify({"status": "success", "message": "IR_Top_Left control successful!"})
+    elif content['ID'] == 'Blue_T_R':
+        gpioLED(royal_blue_Top_Right, content['value'])
+        return jsonify({"status": "success", "message": "Blue_Top_Right control successful!"})
+    elif content['ID'] == 'Red_T_R':
+        gpioLED(deep_red_Top_Right, content['value'])
+        return jsonify({"status": "success", "message": "Red_Top_Right control successful!"})
+    elif content['ID'] == 'IR_T_R':
+        gpioLED(IR_Top_Right, content['value'])
+        return jsonify({"status": "success", "message": "IR_Top_Right control successful!"})
+    elif content['ID'] == 'Blue_B_L':
+        gpioLED(royal_blue_Bottom_Left, content['value'])
+        return jsonify({"status": "success", "message": "Blue_Bottom_Left control successful!"})
+    elif content['ID'] == 'Red_B_L':
+        gpioLED(deep_red_Bottom_Left, content['value'])
+        return jsonify({"status": "success", "message": "Red_Bottom_Left control successful!"})
+    elif content['ID'] == 'IR_B_L':
+        gpioLED(IR_Bottom_Left, content['value'])
+        return jsonify({"status": "success", "message": "IR_Bottom_Left control successful!"})
+    elif content['ID'] == 'Blue_B_R':
+        gpioLED(royal_blue_Bottom_Right, content['value'])
+        return jsonify({"status": "success", "message": "Blue_Bottom_Right control successful!"})
+    elif content['ID'] == 'Red_B_R':
+        gpioLED(deep_red_Bottom_Right, content['value'])
+        return jsonify({"status": "success", "message": "Red_Bottom_Right control successful!"})
+    elif content['ID'] == 'IR_B_R':
+        gpioLED(IR_Bottom_Right, content['value'])
+        return jsonify({"status": "success", "message": "IR_Bottom_Right control successful!"})
     else:
         return jsonify({"status": "failure", "message": "Device of this ID doesn't exist!"})
 
