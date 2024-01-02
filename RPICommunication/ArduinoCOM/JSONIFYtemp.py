@@ -1,5 +1,6 @@
 import mariadb
 import sys
+import json
 
 
 def get_temp():
@@ -18,9 +19,13 @@ def get_temp():
     cur = conn.cursor()
     cur.execute("SELECT * FROM AHT10 ORDER BY id DESC LIMIT 10")
     for (id, temperature, humidity, timestamp) in cur:
-        data.append(temperature)
-        print(f"id: {id}, temperature: {temperature}, humidity: {humidity}, timestamp: {timestamp}")
+        item = {"temperature": temperature}
+        data.append(item)
+        #data.append(temperature)
+        #print(f"id: {id}, temperature: {temperature}, humidity: {humidity}, timestamp: {timestamp}")
+    jsonData = json.dumps(data)
     conn.commit()
     conn.close()
-    print(data)
-    return data
+    print("data:", data)
+    print("jsonData:", jsonData)
+    return jsonData
