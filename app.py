@@ -133,8 +133,8 @@ def lighting():
 def datasets():
     print("Function Datasets triggered!")
     content = request.json
-    print(content['ID'])
-    print(content['value'])
+    #print(content['ID'])
+    print(content['message'])
     if content['ID'] == 1:
         return get_temp()
         #return jsonify({"status": "success", "message": "Dataset1 control successful!"})
