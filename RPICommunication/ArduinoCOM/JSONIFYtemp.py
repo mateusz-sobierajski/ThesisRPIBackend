@@ -23,9 +23,9 @@ def get_temp():
         data.append(item)
         #data.append(temperature)
         #print(f"id: {id}, temperature: {temperature}, humidity: {humidity}, timestamp: {timestamp}")
+    print("data:", data)
     jsonData = json.dumps(data)
     conn.commit()
     conn.close()
-    print("data:", data)
     print("jsonData:", jsonData)
     return jsonData
