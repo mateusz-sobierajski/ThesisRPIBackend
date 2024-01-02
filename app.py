@@ -135,14 +135,14 @@ def datasets():
     content = request.json
     #print(content['ID'])
     print(content['message'])
-    if content['ID'] == 1:
+    if content['message'] == 1:
         return get_temp()
         #return jsonify({"status": "success", "message": "Dataset1 control successful!"})
-    elif content['ID'] == 2:
+    elif content['message'] == 2:
         return jsonify({"status": "success", "message": "Dataset2 control successful!"})
-    elif content['ID'] == 3:
+    elif content['message'] == 3:
         return jsonify({"status": "success", "message": "Dataset3 control successful!"})
-    elif content['ID'] == 4:
+    elif content['message'] == 4:
         return jsonify({"status": "success", "message": "Dataset4 control successful!"})
     else:
         return jsonify({"status": "failure", "message": "Device of this ID doesn't exist!"})
