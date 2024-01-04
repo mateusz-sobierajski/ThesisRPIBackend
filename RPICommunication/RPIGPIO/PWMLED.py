@@ -6,7 +6,7 @@ def initGpio(ledpin):
     GPIO.setwarnings(False)  # disable warnings
     GPIO.setmode(GPIO.BOARD)  # set pin numbering system
     GPIO.setup(ledpin, GPIO.OUT)
-    pwmPin = GPIO.PWM(ledpin, 1000)  # create PWM instance with frequency
+    pwmPin = GPIO.PWM(ledpin, 100)  # create PWM instance with frequency
     pwmPin.start(0)  # start PWM of required Duty Cycle
     return pwmPin
 
