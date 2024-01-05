@@ -20,7 +20,7 @@ def get_temp():
     cur.execute("SELECT * FROM AHT10 ORDER BY id DESC LIMIT 10")
 
     for (temperature) in cur:
-        item = {"temperature": temperature}
+        item = {"temperature": str(temperature)}
         data.append(item)
         #data.append(temperature)
         #print(f"id: {id}, temperature: {temperature}, humidity: {humidity}, timestamp: {timestamp}")
