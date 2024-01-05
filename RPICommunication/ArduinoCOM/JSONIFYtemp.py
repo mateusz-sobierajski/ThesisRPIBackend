@@ -2,7 +2,6 @@ import mariadb
 import sys
 import json
 
-
 def get_temp():
     data: list = []
     try:
@@ -25,7 +24,7 @@ def get_temp():
         #data.append(temperature)
         #print(f"id: {id}, temperature: {temperature}, humidity: {humidity}, timestamp: {timestamp}")
     print("data:\n", data)
-    jsonData = json.dumps(data)
+    jsonData = json.dumps(data, default=str)
     conn.commit()
     conn.close()
     print("jsonData:", jsonData)
