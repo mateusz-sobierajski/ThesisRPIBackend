@@ -17,7 +17,7 @@ def get_temp():
         print(f"Error connecting to MariaDB Platform: {e}")
         sys.exit(1)
     cur = conn.cursor()
-    cur.execute("SELECT * FROM AHT10 ORDER BY id DESC LIMIT 10")
+    cur.execute("SELECT temperature FROM AHT10 ORDER BY id DESC LIMIT 10")
 
     for (temperature) in cur:
         item = {"temperature": str(temperature)}
