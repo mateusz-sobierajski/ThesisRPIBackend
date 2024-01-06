@@ -27,5 +27,6 @@ def get_temp():
     jsonData = json.dumps(data, default=str)
     conn.commit()
     conn.close()
+    data.clear()
     print("jsonData:", jsonData)
     return jsonData
