@@ -9,7 +9,7 @@ from RPICommunication.RPIGPIO.PWMLED import gpioLED, initGpio
 
 app = Flask(__name__)
 CORS(app, origins="*") #DEV ONLY!
-#listener()
+listener()
 
 royal_blue_Top_Left = pin07 = initGpio(7)
 deep_red_Top_Left = pin11 = initGpio(11)
