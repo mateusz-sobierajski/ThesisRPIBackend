@@ -28,5 +28,5 @@ def get_temp():
     conn.commit()
     conn.close()
     data.clear()
-    print("jsonData:", jsonData)
+    print("jsonData:\n", jsonData)
     return jsonData
