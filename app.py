@@ -10,7 +10,7 @@ from RPICommunication.RPIGPIO.PWMLED import gpioLED, initGpio
 app = Flask(__name__)
 CORS(app, origins="*") #DEV ONLY!
 #listener()
-
+('''
 royal_blue_Top_Left = pin07 = initGpio(7)
 deep_red_Top_Left = pin11 = initGpio(11)
 IR_Top_Left = pin12 = initGpio(12)
@@ -31,6 +31,8 @@ peristaltic_PH_Positive = pin36 = initGpio(36)
 peristaltic_PH_Negative = pin37 = initGpio(37)
 peristaltic_Nutrients = pin38 = initGpio(38)
 water_pump = pin40 = initGpio(40)
+''')
+
 
 def runApp():
     app.run(host="0.0.0.0", port=5000, debug=True)
