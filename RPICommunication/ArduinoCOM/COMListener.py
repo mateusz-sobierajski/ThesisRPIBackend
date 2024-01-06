@@ -2,7 +2,7 @@ import serial
 import time
 
 #from RPICommunication.ArduinoCOM.JSONIFYtemp import get_temp
-#from RPICommunication.MariaDB.INSERT_handler import insert_aht10
+from RPICommunication.MariaDB.INSERT_handler import insert_aht10
 
 
 def listener():
@@ -23,7 +23,7 @@ def listener():
 			#print ("Init ii counter: ")
 			#print (ii)
 			if ii > 4:
-				#insert_aht10(splitinfo)
+				insert_aht10(splitinfo)
 				print(splitinfo[1])
 			#for i in range(len(splitinfo)):
 			#	print(i)
